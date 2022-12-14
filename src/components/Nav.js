@@ -54,15 +54,15 @@ const Nav = () => {
 
   return (
     <NavBar>
-      <NavBtn href="/" path={path}>
+      <NavBtn href="#/" path={path}>
         <i className="fa-solid fa-house"></i>
         <span>홈</span>
       </NavBtn>
-      <NavBtn href="/memo" path={path}>
+      <NavBtn href="#/memo" path={path}>
         <i className="fa-regular fa-calendar-check"></i>
         <span>오할</span>
       </NavBtn>
-      <NavBtn href="/workout" path={path}>
+      <NavBtn href="#/workout" path={path}>
         <i className="fa-solid fa-person-walking"></i>
         <span>오운</span>
       </NavBtn>

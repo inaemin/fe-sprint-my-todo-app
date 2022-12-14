@@ -126,10 +126,10 @@ const Weather = () => {
     const { lat, lon } = res;
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=kr&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=kr&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
       )
       .then((res) => {
-        setIcon(`http://openweathermap.org/img/wn/${res.data.weather[0].icon}@4x.png`);
+        setIcon(`https://openweathermap.org/img/wn/${res.data.weather[0].icon}@4x.png`);
         setWeather(res.data.weather[0].main);
         setDescription(res.data.weather[0].description);
         setRegion(res.data.name);
@@ -139,7 +139,7 @@ const Weather = () => {
         setFeelslike(res.data.main.feels_like);
         axios
           .get(
-            `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&lang=kr&appid=${process.env.REACT_APP_WEATHER_API}`
+            `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&lang=kr&appid=${process.env.REACT_APP_WEATHER_API}`
           )
           .then((res) => {
             setPM10(res.data.list[0].components.pm10);

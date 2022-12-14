@@ -38,7 +38,7 @@ const Header = ({ title }) => {
         className="fa-solid fa-gear"
         hidden={path === "/" ? false : true}
         as="a"
-        href="/setting"
+        href="#/setting"
       ></Setting>
     </header>
   );
