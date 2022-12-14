@@ -1,0 +1,58 @@
+{
+  "cart": [
+    {
+      "id": 1,
+      "title": "🍎 apple",
+      "isCompleted": true
+    },
+    {
+      "id": 2,
+      "title": "🥛 milk",
+      "isCompleted": false
+    },
+    {
+      "id": 3,
+      "title": "🍪 snack",
+      "isCompleted": false
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "title": "운동가기",
+      "isCompleted": false
+    },
+    {
+      "id": 2,
+      "title": "장보기",
+      "isCompleted": false
+    },
+    {
+      "id": 3,
+      "title": "more things to do...",
+      "isCompleted": false
+    },
+    {
+      "id": 4,
+      "title": "abc",
+      "isCompleted": false
+    }
+  ],
+  "study": [
+    {
+      "id": 1,
+      "title": "데일리코딩",
+      "isCompleted": true
+    },
+    {
+      "id": 2,
+      "title": "투두앱 만들기",
+      "isCompleted": false
+    },
+    {
+      "id": 3,
+      "title": "more things to do...",
+      "isCompleted": false
+    }
+  ]
+}
