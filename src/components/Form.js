@@ -5,7 +5,7 @@ import { LoadingDotFlashing } from "./Loading";
 
 const ToDoContainer = styled.div`
   width: auto;
-  height: 520px;
+  height: 480px;
   background-color: rgba(236, 236, 236, 0.35);
   border-radius: 20px;
   display: flex;
@@ -27,7 +27,7 @@ const ToDoList = styled.ul`
 
 const ToDoItem = styled.li`
   list-style: none;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 200%;
   color: ${(props) => (props.isCompleted ? "#B1B1B1" : "black")};
   text-decoration: ${(props) => (props.isCompleted ? "line-through" : "")};

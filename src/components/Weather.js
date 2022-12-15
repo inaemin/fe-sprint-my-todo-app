@@ -7,12 +7,12 @@ import { LoadingDotFlashing } from "./Loading";
 const MidTitle = styled.h2`
   font-weight: 700;
   font-size: 25px;
-  margin-bottom: 18px;
+  margin-bottom: 13px;
 `;
 
 const WeatherContainer = styled.section`
   width: 100%;
-  height: 200px;
+  height: 180px;
   background-color: rgba(236, 236, 236, 0.35);
   border-radius: 20px;
   display: flex;
@@ -26,7 +26,7 @@ const WeatherImg = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  width: 100%;
+  width: 40%;
   height: 100%;
   position: relative;
 
@@ -66,18 +66,18 @@ const WeatherImg = styled.div`
 const WeatherInfo = styled.div`
   display: grid;
   padding: 20px 20px 20px 0px;
-  width: 100%;
+  width: 60%;
   height: auto;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(6, auto);
-  font-size: 15px;
-  line-height: 160%;
+  font-size: 14px;
+  line-height: 180%;
   text-align: center;
 
   div:first-child {
     grid-area: 1 / 1 / 2 / -1;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
     height: 30px;
   }
 
@@ -86,7 +86,7 @@ const WeatherInfo = styled.div`
   }
 
   div:nth-child(even) {
-    font-size: 12px;
+    font-size: 13px;
   }
 `;
 

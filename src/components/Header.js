@@ -33,7 +33,7 @@ const Header = ({ title }) => {
 
   return (
     <header>
-      <MainTitle href={path}>{title}</MainTitle>
+      <MainTitle href={`#/${path}`}>{title}</MainTitle>
       <Setting
         className="fa-solid fa-gear"
         hidden={path === "/" ? false : true}

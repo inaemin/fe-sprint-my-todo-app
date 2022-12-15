@@ -12,7 +12,7 @@ const MidTitle = styled.h2`
 
 const TodoContainer = styled.ul`
   width: 100%;
-  height: 200px;
+  height: 180px;
   padding: 20px 0px 20px 0px;
   list-style: none;
   background: rgba(236, 236, 236, 0.35);
