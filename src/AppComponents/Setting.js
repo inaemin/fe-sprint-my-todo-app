@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const SettingContainer = styled.table`
-  margin-top: 61px;
+  margin-top: 31px;
   width: 100%;
   border-top: 1px solid rgba(0, 0, 0, 0.09);
 
@@ -38,37 +38,39 @@ const Setting = () => {
   return (
     <>
       <Header title="설정" />
-      <SettingContainer>
-        <tbody>
-          <tr>
-            <td>
-              <i className="fa-solid fa-moon"></i>
-              <span>다크모드</span>
-            </td>
-            <td>
-              <Toggle isOn={checked} handleToggle={handleToggle} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <i className="fa-solid fa-user"></i>
-              <span>사용자 정보</span>
-            </td>
-            <td>
-              <i className="fa-solid fa-chevron-right"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <i className="fa-solid fa-apple-whole"></i>
-              <span>제조사</span>
-            </td>
-            <td>
-              <i className="fa-solid fa-chevron-right"></i>
-            </td>
-          </tr>
-        </tbody>
-      </SettingContainer>
+      <main>
+        <SettingContainer>
+          <tbody>
+            <tr>
+              <td>
+                <i className="fa-solid fa-moon"></i>
+                <span>다크모드</span>
+              </td>
+              <td>
+                <Toggle isOn={checked} handleToggle={handleToggle} />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <i className="fa-solid fa-user"></i>
+                <span>사용자 정보</span>
+              </td>
+              <td>
+                <i className="fa-solid fa-chevron-right"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <i className="fa-solid fa-apple-whole"></i>
+                <span>제조사</span>
+              </td>
+              <td>
+                <i className="fa-solid fa-chevron-right"></i>
+              </td>
+            </tr>
+          </tbody>
+        </SettingContainer>
+      </main>
       <Nav />
     </>
   );

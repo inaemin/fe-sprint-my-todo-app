@@ -20,7 +20,7 @@
     {
       "id": 1,
       "title": "운동가기",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
       "id": 2,
@@ -30,7 +30,12 @@
     {
       "id": 3,
       "title": "more things to do...",
-      "isCompleted": false
+      "isCompleted": true
+    },
+    {
+      "title": "영어공부하기",
+      "isCompleted": false,
+      "id": 4
     }
   ],
   "study": [

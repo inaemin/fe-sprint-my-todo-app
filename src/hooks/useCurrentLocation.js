@@ -9,7 +9,7 @@ const useCurrentLocation = async () => {
   };
 
   const handleError = () => {
-    // 위치정보를 못 불러오면 기본값 서울
+    // 위치정보를 못 불러오면 기본값 쿠퍼티노
     setLocation({ lat: 37.3229978, lon: -122.0321823 });
   };
 

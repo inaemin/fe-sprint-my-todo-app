@@ -7,8 +7,10 @@ const Home = () => {
   return (
     <>
       <Header title="홈" />
-      <Weather />
-      <Todo />
+      <main>
+        <Weather />
+        <Todo />
+      </main>
       <Nav />
     </>
   );

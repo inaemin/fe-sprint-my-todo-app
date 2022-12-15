@@ -12,15 +12,24 @@ const MidTitle = styled.h2`
 
 const TodoContainer = styled.ul`
   width: 100%;
-  height: 180px;
+  min-height: 140px;
   padding: 20px 0px 20px 0px;
   list-style: none;
   background: rgba(236, 236, 236, 0.35);
   border-radius: 20px;
   display: ${(props) => (props.isLoading ? "flex" : "grid")};
-  grid-template-rows: repeat(auto-fill, 30px);
+  grid-template-rows: repeat(auto-fill, auto);
   grid-template-columns: repeat(2, 1fr);
   row-gap: 10px;
+  column-gap: 15px;
+
+  li:nth-child(odd) {
+    padding-left: 20px;
+  }
+
+  li:nth-child(even) {
+    padding-right: 20px;
+  }
 `;
 
 const TodoList = styled.li`
@@ -29,7 +38,6 @@ const TodoList = styled.li`
   align-items: center;
   i {
     color: ${(props) => (props.isCompleted ? "#56C372" : "black")};
-    padding-left: 20px;
     padding-right: 10px;
   }
 `;

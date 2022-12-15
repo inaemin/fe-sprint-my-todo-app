@@ -12,7 +12,7 @@ const NavBar = styled.nav`
   bottom: 0;
   border-radius: 20px;
   box-shadow: 0px -7px 10px 1px rgba(0, 0, 0, 0.09);
-  animation: comingup 0.8s ease-in-out;
+  /* animation: comingup 0.8s ease-in-out;
 
   @keyframes comingup {
     from {
@@ -21,7 +21,7 @@ const NavBar = styled.nav`
     to {
       transform: translateY(0);
     }
-  }
+  } */
 `;
 
 const NavBtn = styled.a`
@@ -46,7 +46,7 @@ const NavBtn = styled.a`
   }
 
   // 해당 페이지 메뉴바 버튼만 블랙으로.
-  color: ${(props) => (props.href === props.path ? "black" : "grey")};
+  color: ${(props) => (props.href.slice(1) === props.path ? "black" : "grey")};
 `;
 
 const Nav = () => {

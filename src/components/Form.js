@@ -5,7 +5,7 @@ import { LoadingDotFlashing } from "./Loading";
 
 const ToDoContainer = styled.div`
   width: auto;
-  height: 480px;
+  min-height: 480px;
   background-color: rgba(236, 236, 236, 0.35);
   border-radius: 20px;
   display: flex;
@@ -23,6 +23,7 @@ const ToDoList = styled.ul`
   width: 100%;
   height: 100%;
   padding: 0;
+  margin: 0;
 `;
 
 const ToDoItem = styled.li`
@@ -34,8 +35,11 @@ const ToDoItem = styled.li`
   transition: 0.2s ease-in-out;
 
   i {
-    margin-right: 15px;
+    margin-right: 10px;
     font-size: 25px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .fa-square-check {
@@ -52,7 +56,7 @@ const ToDoInput = styled.form``;
 const Form = () => {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
-  const [input, setInput] = useState();
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     axios.get("http://localhost:3001/todos").then((res) => {
@@ -61,7 +65,7 @@ const Form = () => {
     });
   }, []);
 
-  const createItem = () => {
+  const createItem = (e) => {
     axios
       .post(`http://localhost:3001/todos`, {
         title: input,
@@ -69,26 +73,20 @@ const Form = () => {
       })
       .then((res) => {
         setData([...data, res.data]);
+        setInput("");
       })
       .catch((err) => console.log(err));
   };
 
   const updateItem = (e) => {
     const { id } = e.target.parentElement;
-    const { title, isCompleted } = data.find((el) => el.id === Number(id));
+    const { isCompleted } = data.find((el) => el.id === Number(id));
     axios
-      .put(`http://localhost:3001/todos/${id}`, {
-        id,
-        title,
+      .patch(`http://localhost:3001/todos/${id}`, {
         isCompleted: !isCompleted,
       })
       .then((res) => {
-        setData([
-          ...data.map((el) => {
-            if (el.id === Number(id)) return res.data;
-            else return el;
-          }),
-        ]);
+        setData([...data.map((el) => (el.id === Number(id) ? res.data : el))]);
       })
       .catch((err) => console.log(err));
   };
@@ -122,9 +120,9 @@ const Form = () => {
           <LoadingDotFlashing />
         )}
       </ToDoList>
-      <ToDoInput>
-        <input placeholder="여기에 입력하세요" onChange={handleInput} required />
-        <button onClick={createItem}>Enter</button>
+      <ToDoInput onSubmit={createItem}>
+        <input placeholder="여기에 입력하세요" value={input} onChange={handleInput} required />
+        <button>Enter</button>
       </ToDoInput>
     </ToDoContainer>
   );

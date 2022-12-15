@@ -6,7 +6,9 @@ const Memo = () => {
   return (
     <>
       <Header title="오늘의 할일" />
-      <Form />
+      <main>
+        <Form />
+      </main>
       <Nav />
     </>
   );
