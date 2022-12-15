@@ -10,7 +10,7 @@ const ToDoContainer = styled.div`
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.isLoading ? "center" : "space-between")};
   align-items: center;
   padding: 20px;
 `;
@@ -106,24 +106,26 @@ const Form = () => {
   };
 
   return (
-    <ToDoContainer>
-      <ToDoList>
-        {!isLoading ? (
-          data.map((data) => (
-            <ToDoItem key={data.id} id={data.id} isCompleted={data.isCompleted}>
-              <i className="fa-solid fa-square-check" onClick={updateItem}></i>
-              <i className="fa-solid fa-trash-can" onClick={deleteItem}></i>
-              {data.title}
-            </ToDoItem>
-          ))
-        ) : (
-          <LoadingDotFlashing />
-        )}
-      </ToDoList>
-      <ToDoInput onSubmit={createItem}>
-        <input placeholder="여기에 입력하세요" value={input} onChange={handleInput} required />
-        <button>Enter</button>
-      </ToDoInput>
+    <ToDoContainer isLoading={isLoading}>
+      {!isLoading ? (
+        <>
+          <ToDoList>
+            {data.map((data) => (
+              <ToDoItem key={data.id} id={data.id} isCompleted={data.isCompleted}>
+                <i className="fa-solid fa-square-check" onClick={updateItem}></i>
+                <i className="fa-solid fa-trash-can" onClick={deleteItem}></i>
+                {data.title}
+              </ToDoItem>
+            ))}
+          </ToDoList>
+          <ToDoInput onSubmit={createItem}>
+            <input placeholder="여기에 입력하세요" value={input} onChange={handleInput} required />
+            <button>Enter</button>
+          </ToDoInput>
+        </>
+      ) : (
+        <LoadingDotFlashing />
+      )}
     </ToDoContainer>
   );
 };

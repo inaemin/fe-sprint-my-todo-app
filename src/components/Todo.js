@@ -18,6 +18,8 @@ const TodoContainer = styled.ul`
   background: rgba(236, 236, 236, 0.35);
   border-radius: 20px;
   display: ${(props) => (props.isLoading ? "flex" : "grid")};
+  justify-content: center;
+  align-items: center;
   grid-template-rows: repeat(auto-fill, auto);
   grid-template-columns: repeat(2, 1fr);
   row-gap: 10px;
@@ -39,6 +41,7 @@ const TodoList = styled.li`
   i {
     color: ${(props) => (props.isCompleted ? "#56C372" : "black")};
     padding-right: 10px;
+    font-size: 15px;
   }
 `;
 

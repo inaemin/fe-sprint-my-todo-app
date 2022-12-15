@@ -34,7 +34,7 @@ const WeatherImg = styled.div`
     width: 120px;
     height: 120px;
     position: absolute;
-    top: 10px;
+    top: 5px;
 
     &:hover {
       animation: floating 1.2s ease-in-out infinite;
@@ -58,7 +58,7 @@ const WeatherImg = styled.div`
     font-weight: 600;
     &:last-child {
       font-size: 13px;
-      padding-bottom: 30px;
+      padding-bottom: 20px;
     }
   }
 `;
