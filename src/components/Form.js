@@ -28,7 +28,7 @@ const ToDoList = styled.ul`
 
 const ToDoItem = styled.li`
   list-style: none;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 200%;
   color: ${(props) => (props.isCompleted ? "#B1B1B1" : "black")};
   text-decoration: ${(props) => (props.isCompleted ? "line-through" : "")};
@@ -36,18 +36,25 @@ const ToDoItem = styled.li`
 
   i {
     margin-right: 10px;
-    font-size: 25px;
+    font-size: 20px;
     &:hover {
       cursor: pointer;
+      transition: 0.2s ease-in-out;
     }
   }
 
   .fa-square-check {
-    color: ${(props) => (props.isCompleted ? "#B1B1B1" : "#56C372")};
+    color: ${(props) => (props.isCompleted ? "#7b7b7b" : "#449c5b")};
+    &:hover {
+      color: ${(props) => (props.isCompleted ? "#B1B1B1" : "#56C372")};
+    }
   }
 
   .fa-trash-can {
     color: #ff8b3b;
+    &:hover {
+      color: #ffad75;
+    }
   }
 `;
 
@@ -119,7 +126,13 @@ const Form = () => {
             ))}
           </ToDoList>
           <ToDoInput onSubmit={createItem}>
-            <input placeholder="여기에 입력하세요" value={input} onChange={handleInput} required />
+            <input
+              placeholder="여기에 입력하세요"
+              value={input}
+              onChange={handleInput}
+              maxlength="15"
+              required
+            />
             <button>Enter</button>
           </ToDoInput>
         </>
