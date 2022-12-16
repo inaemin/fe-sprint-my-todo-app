@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fe-sprint-my-todo-app/static/css/main.e9b55b8d.css",
-    "main.js": "/fe-sprint-my-todo-app/static/js/main.50f8d4b5.js",
+    "main.css": "/fe-sprint-my-todo-app/static/css/main.8700b87f.css",
+    "main.js": "/fe-sprint-my-todo-app/static/js/main.fa3e72b3.js",
     "static/js/787.33274a36.chunk.js": "/fe-sprint-my-todo-app/static/js/787.33274a36.chunk.js",
     "index.html": "/fe-sprint-my-todo-app/index.html",
-    "main.e9b55b8d.css.map": "/fe-sprint-my-todo-app/static/css/main.e9b55b8d.css.map",
-    "main.50f8d4b5.js.map": "/fe-sprint-my-todo-app/static/js/main.50f8d4b5.js.map",
+    "main.8700b87f.css.map": "/fe-sprint-my-todo-app/static/css/main.8700b87f.css.map",
+    "main.fa3e72b3.js.map": "/fe-sprint-my-todo-app/static/js/main.fa3e72b3.js.map",
     "787.33274a36.chunk.js.map": "/fe-sprint-my-todo-app/static/js/787.33274a36.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9b55b8d.css",
-    "static/js/main.50f8d4b5.js"
+    "static/css/main.8700b87f.css",
+    "static/js/main.fa3e72b3.js"
   ]
 }
