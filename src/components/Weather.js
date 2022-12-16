@@ -1,8 +1,8 @@
-import axios from "axios";
-import { useState } from "react";
-import useCurrentLocation from "../hooks/useCurrentLocation";
-import styled from "styled-components";
-import { LoadingDotFlashing } from "./Loading";
+import axios from 'axios';
+import { useState } from 'react';
+import useCurrentLocation from '../hooks/useCurrentLocation';
+import styled from 'styled-components';
+import { LoadingDotFlashing } from './Loading';
 
 const MidTitle = styled.h2`
   font-weight: 700;
@@ -26,7 +26,7 @@ const WeatherImg = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  width: 40%;
+  width: 45%;
   height: 100%;
   position: relative;
 
@@ -66,7 +66,7 @@ const WeatherImg = styled.div`
 const WeatherInfo = styled.div`
   display: grid;
   padding: 20px 20px 20px 0px;
-  width: 60%;
+  width: 55%;
   height: auto;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(6, auto);
@@ -91,7 +91,7 @@ const WeatherInfo = styled.div`
 `;
 
 const WeatherAirInfo = styled.div`
-  background-color: ${(props) => (props.bgColor ? props.bgColor : "")};
+  background-color: ${(props) => (props.bgColor ? props.bgColor : '')};
 `;
 
 const Weather = () => {
@@ -110,12 +110,12 @@ const Weather = () => {
   const midtitle = () => {
     const hour = new Date().getHours();
     return hour >= 18
-      ? "즐거운 저녁입니다"
+      ? '즐거운 저녁입니다'
       : hour >= 12
-      ? "즐거운 오후입니다"
+      ? '즐거운 오후입니다'
       : hour >= 6
-      ? "즐거운 아침입니다"
-      : "고요한 새벽입니다";
+      ? '즐거운 아침입니다'
+      : '고요한 새벽입니다';
   };
 
   useCurrentLocation().then((res) => {
@@ -129,7 +129,9 @@ const Weather = () => {
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=kr&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
       )
       .then((res) => {
-        setIcon(`https://openweathermap.org/img/wn/${res.data.weather[0].icon}@4x.png`);
+        setIcon(
+          `https://openweathermap.org/img/wn/${res.data.weather[0].icon}@4x.png`
+        );
         setWeather(res.data.weather[0].main);
         setDescription(res.data.weather[0].description);
         setRegion(res.data.name);
@@ -150,14 +152,14 @@ const Weather = () => {
   });
 
   const colors = [
-    "rgba(225, 36, 64, 0.5)",
-    "rgba(254, 79, 59, 0.5)",
-    "rgba(254, 122, 15, 0.5)",
-    "rgba(248, 204, 97, 0.5)",
-    "rgba(81, 194, 166, 0.5)",
-    "rgba(83, 198, 203, 0.5)",
-    "rgba(76, 202, 225, 0.5)",
-    "rgba(80, 166, 249, 0.5)",
+    'rgba(225, 36, 64, 0.5)',
+    'rgba(254, 79, 59, 0.5)',
+    'rgba(254, 122, 15, 0.5)',
+    'rgba(248, 204, 97, 0.5)',
+    'rgba(81, 194, 166, 0.5)',
+    'rgba(83, 198, 203, 0.5)',
+    'rgba(76, 202, 225, 0.5)',
+    'rgba(80, 166, 249, 0.5)',
   ];
 
   const PM10Color = (PM10) => {
@@ -220,7 +222,9 @@ const Weather = () => {
               <WeatherAirInfo bgColor={PM10Color(pm10)}>PM10</WeatherAirInfo>
               <WeatherAirInfo bgColor={PM10Color(pm10)}>{pm10}</WeatherAirInfo>
               <WeatherAirInfo bgColor={PM2_5Color(pm2_5)}>PM2.5</WeatherAirInfo>
-              <WeatherAirInfo bgColor={PM2_5Color(pm2_5)}>{pm2_5}</WeatherAirInfo>
+              <WeatherAirInfo bgColor={PM2_5Color(pm2_5)}>
+                {pm2_5}
+              </WeatherAirInfo>
             </WeatherInfo>
           </>
         ) : (

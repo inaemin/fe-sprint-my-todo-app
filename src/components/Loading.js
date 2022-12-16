@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const DotFlashing = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ const DotFlashing = styled.div`
   }
   .dot-flashing::before,
   .dot-flashing::after {
-    content: "";
+    content: '';
     display: inline-block;
     position: absolute;
     top: 0;

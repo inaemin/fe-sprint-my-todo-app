@@ -1,7 +1,7 @@
-import Header from "./components/Header";
-import Weather from "./components/Weather";
-import Todo from "./components/Todo";
-import Nav from "./components/Nav";
+import Header from './components/Header';
+import Weather from './components/Weather';
+import Todo from './components/Todo';
+import Nav from './components/Nav';
 
 const Home = () => {
   return (
