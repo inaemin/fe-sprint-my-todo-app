@@ -1,8 +1,8 @@
-import Header from "../components/Header";
-import Nav from "../components/Nav";
-import Toggle from "../components/Toggle";
-import styled from "styled-components";
-import { useState } from "react";
+import Header from '../components/Header';
+import Nav from '../components/Nav';
+import Toggle from '../components/Toggle';
+import styled from 'styled-components';
+import { useState } from 'react';
 
 const SettingContainer = styled.table`
   margin-top: 31px;
@@ -31,7 +31,7 @@ const SettingContainer = styled.table`
 
 const Setting = () => {
   const [checked, setChecked] = useState(false);
-  const handleToggle = (e) => {
+  const handleToggle = () => {
     setChecked(!checked);
   };
 

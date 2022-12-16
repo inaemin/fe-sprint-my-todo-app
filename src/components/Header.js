@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 const MainTitle = styled.a`
   font-weight: 700;
@@ -12,7 +12,7 @@ const Setting = styled.i`
   font-size: 35px;
   color: grey;
   text-decoration: none;
-  visibility: ${(props) => (props.hidden ? "hidden" : "")};
+  visibility: ${(props) => (props.hidden ? 'hidden' : '')};
   &:hover {
     animation: rotate 2s linear infinite;
     cursor: pointer;
@@ -33,12 +33,12 @@ const Header = ({ title }) => {
 
   return (
     <header>
-      <MainTitle href={`#/${path}`}>{title}</MainTitle>
+      <MainTitle href={`/${path}`}>{title}</MainTitle>
       <Setting
         className="fa-solid fa-gear"
-        hidden={path === "/" ? false : true}
+        hidden={path === '/' ? false : true}
         as="a"
-        href="#/setting"
+        href="/setting"
       ></Setting>
     </header>
   );

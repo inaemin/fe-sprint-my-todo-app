@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import { LoadingDotFlashing } from "./Loading";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import { LoadingDotFlashing } from './Loading';
 
 const MidTitle = styled.h2`
   font-weight: 700;
@@ -17,7 +17,7 @@ const TodoContainer = styled.ul`
   list-style: none;
   background: rgba(236, 236, 236, 0.35);
   border-radius: 20px;
-  display: ${(props) => (props.isLoading ? "flex" : "grid")};
+  display: ${(props) => (props.isLoading ? 'flex' : 'grid')};
   justify-content: center;
   align-items: center;
   grid-template-rows: repeat(auto-fill, auto);
@@ -39,7 +39,7 @@ const TodoList = styled.li`
   display: flex;
   align-items: center;
   i {
-    color: ${(props) => (props.isCompleted ? "#56C372" : "black")};
+    color: ${(props) => (props.isCompleted ? '#56C372' : 'black')};
     padding-right: 10px;
     font-size: 15px;
   }
@@ -50,7 +50,7 @@ const Todo = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/todos").then((res) => {
+    axios.get('http://localhost:3001/todos').then((res) => {
       setData(res.data);
       setLoading(false);
     });

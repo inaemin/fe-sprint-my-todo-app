@@ -1,14 +1,14 @@
-import "./App.css";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Memo from "./AppComponents/Memo";
-import WorkOut from "./AppComponents/WorkOut";
-import Setting from "./AppComponents/Setting";
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import Memo from './AppComponents/Memo';
+import WorkOut from './AppComponents/WorkOut';
+import Setting from './AppComponents/Setting';
 
 const App = () => {
   return (
     <div className="App">
-      <Router baseline="/">
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/memo" element={<Memo />} />

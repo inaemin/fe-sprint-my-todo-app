@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import axios from "axios";
-import { LoadingDotFlashing } from "./Loading";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
+import { LoadingDotFlashing } from './Loading';
 
 const ToDoContainer = styled.div`
   width: auto;
@@ -10,7 +10,7 @@ const ToDoContainer = styled.div`
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: ${(props) => (props.isLoading ? "center" : "space-between")};
+  justify-content: ${(props) => (props.isLoading ? 'center' : 'space-between')};
   align-items: center;
   padding: 20px;
 `;
@@ -30,8 +30,8 @@ const ToDoItem = styled.li`
   list-style: none;
   font-size: 15px;
   line-height: 200%;
-  color: ${(props) => (props.isCompleted ? "#B1B1B1" : "black")};
-  text-decoration: ${(props) => (props.isCompleted ? "line-through" : "")};
+  color: ${(props) => (props.isCompleted ? '#B1B1B1' : 'black')};
+  text-decoration: ${(props) => (props.isCompleted ? 'line-through' : '')};
   transition: 0.2s ease-in-out;
 
   i {
@@ -44,9 +44,9 @@ const ToDoItem = styled.li`
   }
 
   .fa-square-check {
-    color: ${(props) => (props.isCompleted ? "#7b7b7b" : "#449c5b")};
+    color: ${(props) => (props.isCompleted ? '#7b7b7b' : '#449c5b')};
     &:hover {
-      color: ${(props) => (props.isCompleted ? "#B1B1B1" : "#56C372")};
+      color: ${(props) => (props.isCompleted ? '#B1B1B1' : '#56C372')};
     }
   }
 
@@ -63,16 +63,16 @@ const ToDoInput = styled.form``;
 const Form = () => {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   useEffect(() => {
-    axios.get("http://localhost:3001/todos").then((res) => {
+    axios.get('http://localhost:3001/todos').then((res) => {
       setData(res.data);
       setLoading(false);
     });
   }, []);
 
-  const createItem = (e) => {
+  const createItem = () => {
     axios
       .post(`http://localhost:3001/todos`, {
         title: input,
@@ -80,7 +80,7 @@ const Form = () => {
       })
       .then((res) => {
         setData([...data, res.data]);
-        setInput("");
+        setInput('');
       })
       .catch((err) => console.log(err));
   };
@@ -102,7 +102,7 @@ const Form = () => {
     const { id } = e.target.parentElement;
     axios
       .delete(`http://localhost:3001/todos/${id}`)
-      .then((res) => {
+      .then(() => {
         setData([...data.filter((el) => el.id !== Number(id))]);
       })
       .catch((err) => console.log(err));
@@ -118,9 +118,23 @@ const Form = () => {
         <>
           <ToDoList>
             {data.map((data) => (
-              <ToDoItem key={data.id} id={data.id} isCompleted={data.isCompleted}>
-                <i className="fa-solid fa-square-check" onClick={updateItem}></i>
-                <i className="fa-solid fa-trash-can" onClick={deleteItem}></i>
+              <ToDoItem
+                key={data.id}
+                id={data.id}
+                isCompleted={data.isCompleted}
+              >
+                <i
+                  className="fa-solid fa-square-check"
+                  onClick={updateItem}
+                  onKeyDown={updateItem}
+                  role="presentation"
+                ></i>
+                <i
+                  className="fa-solid fa-trash-can"
+                  onClick={deleteItem}
+                  onKeyDown={deleteItem}
+                  role="presentation"
+                ></i>
                 {data.title}
               </ToDoItem>
             ))}
@@ -130,10 +144,10 @@ const Form = () => {
               placeholder="여기에 입력하세요"
               value={input}
               onChange={handleInput}
-              maxlength="15"
+              maxLength="15"
               required
             />
-            <button>Enter</button>
+            <button type="submit">Enter</button>
           </ToDoInput>
         </>
       ) : (

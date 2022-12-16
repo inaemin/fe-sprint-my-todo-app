@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import Nav from "../components/Nav";
-import Form from "../components/Form";
+import Header from '../components/Header';
+import Nav from '../components/Nav';
+import Form from '../components/Form';
 
 const Memo = () => {
   return (

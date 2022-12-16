@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 const NavBar = styled.nav`
   display: flex;
@@ -47,7 +47,7 @@ const NavBtn = styled.a`
   }
 
   // 해당 페이지 메뉴바 버튼만 블랙으로.
-  color: ${(props) => (props.href.slice(1) === props.path ? "black" : "grey")};
+  color: ${(props) => (props.href.slice(1) === props.path ? 'black' : 'grey')};
 `;
 
 const Nav = () => {
@@ -55,15 +55,15 @@ const Nav = () => {
 
   return (
     <NavBar>
-      <NavBtn href="#/" path={path}>
+      <NavBtn href="/" path={path}>
         <i className="fa-solid fa-house"></i>
         <span>홈</span>
       </NavBtn>
-      <NavBtn href="#/memo" path={path}>
+      <NavBtn href="/memo" path={path}>
         <i className="fa-regular fa-calendar-check"></i>
         <span>오할</span>
       </NavBtn>
-      <NavBtn href="#/workout" path={path}>
+      <NavBtn href="/workout" path={path}>
         <i className="fa-solid fa-person-walking"></i>
         <span>오운</span>
       </NavBtn>
