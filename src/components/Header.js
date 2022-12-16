@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
-const MainTitle = styled.a`
+const MainTitle = styled(Link)`
   font-weight: 700;
   font-size: 45px;
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 `;
 
-const Setting = styled.i`
+const Setting = styled(Link)`
   font-size: 35px;
   color: grey;
   text-decoration: none;
@@ -33,12 +33,11 @@ const Header = ({ title }) => {
 
   return (
     <header>
-      <MainTitle href={`/${path}`}>{title}</MainTitle>
+      <MainTitle to={path}>{title}</MainTitle>
       <Setting
+        to="/setting"
         className="fa-solid fa-gear"
         hidden={path === '/' ? false : true}
-        as="a"
-        href="/setting"
       ></Setting>
     </header>
   );
