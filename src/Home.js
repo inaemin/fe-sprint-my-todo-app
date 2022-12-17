@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Weather from './components/Weather';
-import Todo from './components/Todo';
+import Summary from './components/Summary';
 import Nav from './components/Nav';
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
       <Header title="홈" />
       <main>
         <Weather />
-        <Todo />
+        <Summary />
       </main>
       <Nav />
     </>
