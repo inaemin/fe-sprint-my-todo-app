@@ -67,7 +67,7 @@ const SummaryStudyContainer = styled(SummaryTodoContainer)`
   background-color: #e9defc;
 `;
 
-const Todo = () => {
+const Summary = () => {
   const [cart, setCart] = useState(null);
   const [todos, setTodos] = useState(null);
   const [study, setStudy] = useState(null);
@@ -132,4 +132,4 @@ const Todo = () => {
   );
 };
 
-export default Todo;
+export default Summary;

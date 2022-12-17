@@ -2,46 +2,17 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { LoadingDotFlashing } from './Loading';
+import { CartContainer, CartList, CartItem, CartInput } from './CartForm';
 
-const ToDoContainer = styled.div`
+const StudyContainer = styled(CartContainer)`
   background-color: #e9defc;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: ${(props) => (props.isLoading ? 'center' : 'space-between')};
-  align-items: center;
-  padding: 10px;
 `;
 
-const ToDoList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
-`;
+const StudyList = styled(CartList)``;
 
-const ToDoItem = styled.li`
-  white-space: nowrap;
-  list-style: none;
-  font-size: 15px;
-  color: ${(props) => (props.isCompleted ? '#B1B1B1' : 'black')};
-  text-decoration: ${(props) => (props.isCompleted ? 'line-through' : '')};
-  font-weight: ${(props) => (props.isCompleted ? 'normal' : 'bold')};
-  transition: 0.1s ease-in;
-  margin: 10px;
+const StudyItem = styled(CartItem)``;
 
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const ToDoInput = styled.form`
-  margin-top: 13px;
-  input {
-  }
-  button {
-  }
-`;
+const StudyInput = styled(CartInput)``;
 
 const StudyForm = () => {
   const [data, setData] = useState(null);
@@ -97,12 +68,12 @@ const StudyForm = () => {
   };
 
   return (
-    <ToDoContainer isLoading={isLoading}>
+    <StudyContainer isLoading={isLoading}>
       {!isLoading ? (
         <>
-          <ToDoList>
+          <StudyList>
             {data.map((data) => (
-              <ToDoItem
+              <StudyItem
                 key={data.id}
                 id={data.id}
                 isCompleted={data.isCompleted}
@@ -110,10 +81,10 @@ const StudyForm = () => {
                 onDoubleClick={deleteItem}
               >
                 {data.title}
-              </ToDoItem>
+              </StudyItem>
             ))}
-          </ToDoList>
-          <ToDoInput onSubmit={createItem}>
+          </StudyList>
+          <StudyInput onSubmit={createItem}>
             <input
               placeholder="여기에 입력하세요"
               value={input}
@@ -122,12 +93,12 @@ const StudyForm = () => {
               required
             />
             <button type="submit">Enter</button>
-          </ToDoInput>
+          </StudyInput>
         </>
       ) : (
         <LoadingDotFlashing />
       )}
-    </ToDoContainer>
+    </StudyContainer>
   );
 };
 
