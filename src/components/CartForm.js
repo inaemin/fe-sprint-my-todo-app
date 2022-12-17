@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { LoadingDotFlashing } from './Loading';
 
-const ToDoContainer = styled.div`
+export const CartContainer = styled.div`
   background-color: #fdeeb4;
   border-radius: 20px;
   display: flex;
@@ -13,14 +13,14 @@ const ToDoContainer = styled.div`
   padding: 10px;
 `;
 
-const ToDoList = styled.ul`
+export const CartList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
 `;
 
-const ToDoItem = styled.li`
+export const CartItem = styled.li`
   white-space: nowrap;
   list-style: none;
   font-size: 15px;
@@ -35,7 +35,7 @@ const ToDoItem = styled.li`
   }
 `;
 
-const ToDoInput = styled.form`
+export const CartInput = styled.form`
   margin-top: 13px;
   input {
   }
@@ -97,12 +97,12 @@ const CartForm = () => {
   };
 
   return (
-    <ToDoContainer isLoading={isLoading}>
+    <CartContainer isLoading={isLoading}>
       {!isLoading ? (
         <>
-          <ToDoList>
+          <CartList>
             {data.map((data) => (
-              <ToDoItem
+              <CartItem
                 key={data.id}
                 id={data.id}
                 isCompleted={data.isCompleted}
@@ -110,10 +110,10 @@ const CartForm = () => {
                 onDoubleClick={deleteItem}
               >
                 {data.title}
-              </ToDoItem>
+              </CartItem>
             ))}
-          </ToDoList>
-          <ToDoInput onSubmit={createItem}>
+          </CartList>
+          <CartInput onSubmit={createItem}>
             <input
               placeholder="여기에 입력하세요"
               value={input}
@@ -122,12 +122,12 @@ const CartForm = () => {
               required
             />
             <button type="submit">Enter</button>
-          </ToDoInput>
+          </CartInput>
         </>
       ) : (
         <LoadingDotFlashing />
       )}
-    </ToDoContainer>
+    </CartContainer>
   );
 };
 
