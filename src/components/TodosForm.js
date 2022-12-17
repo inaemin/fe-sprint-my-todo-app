@@ -4,63 +4,46 @@ import axios from 'axios';
 import { LoadingDotFlashing } from './Loading';
 
 const ToDoContainer = styled.div`
-  width: auto;
-  min-height: 480px;
-  background-color: rgba(236, 236, 236, 0.35);
+  background-color: #f0f4c3;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: ${(props) => (props.isLoading ? 'center' : 'space-between')};
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 `;
 
 const ToDoList = styled.ul`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  height: 100%;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
 `;
 
 const ToDoItem = styled.li`
+  white-space: nowrap;
   list-style: none;
   font-size: 15px;
-  line-height: 200%;
   color: ${(props) => (props.isCompleted ? '#B1B1B1' : 'black')};
   text-decoration: ${(props) => (props.isCompleted ? 'line-through' : '')};
-  transition: 0.2s ease-in-out;
+  font-weight: ${(props) => (props.isCompleted ? 'normal' : 'bold')};
+  transition: 0.1s ease-in;
+  margin: 10px;
 
-  i {
-    margin-right: 10px;
-    font-size: 20px;
-    &:hover {
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
-    }
-  }
-
-  .fa-square-check {
-    color: ${(props) => (props.isCompleted ? '#7b7b7b' : '#449c5b')};
-    &:hover {
-      color: ${(props) => (props.isCompleted ? '#B1B1B1' : '#56C372')};
-    }
-  }
-
-  .fa-trash-can {
-    color: #ff8b3b;
-    &:hover {
-      color: #ffad75;
-    }
+  &:hover {
+    cursor: pointer;
   }
 `;
 
-const ToDoInput = styled.form``;
+const ToDoInput = styled.form`
+  margin-top: 13px;
+  input {
+  }
+  button {
+  }
+`;
 
-const Form = () => {
+const TodosForm = () => {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [input, setInput] = useState('');
@@ -72,7 +55,8 @@ const Form = () => {
     });
   }, []);
 
-  const createItem = () => {
+  const createItem = (e) => {
+    e.preventDefault();
     axios
       .post(`http://localhost:3001/todos`, {
         title: input,
@@ -86,7 +70,7 @@ const Form = () => {
   };
 
   const updateItem = (e) => {
-    const { id } = e.target.parentElement;
+    const { id } = e.target;
     const { isCompleted } = data.find((el) => el.id === Number(id));
     axios
       .patch(`http://localhost:3001/todos/${id}`, {
@@ -99,7 +83,7 @@ const Form = () => {
   };
 
   const deleteItem = (e) => {
-    const { id } = e.target.parentElement;
+    const { id } = e.target;
     axios
       .delete(`http://localhost:3001/todos/${id}`)
       .then(() => {
@@ -122,19 +106,9 @@ const Form = () => {
                 key={data.id}
                 id={data.id}
                 isCompleted={data.isCompleted}
+                onClick={updateItem}
+                onDoubleClick={deleteItem}
               >
-                <i
-                  className="fa-solid fa-square-check"
-                  onClick={updateItem}
-                  onKeyDown={updateItem}
-                  role="presentation"
-                ></i>
-                <i
-                  className="fa-solid fa-trash-can"
-                  onClick={deleteItem}
-                  onKeyDown={deleteItem}
-                  role="presentation"
-                ></i>
                 {data.title}
               </ToDoItem>
             ))}
@@ -157,4 +131,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default TodosForm;
