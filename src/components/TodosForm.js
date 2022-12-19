@@ -12,7 +12,12 @@ const TodoList = styled(CartList)``;
 
 const TodoItem = styled(CartItem)``;
 
-const TodoInput = styled(CartInput)``;
+const TodoInput = styled(CartInput)`
+  border: 2px solid #cddc39;
+  button:hover {
+    background-color: #cddc39;
+  }
+`;
 
 const TodosForm = () => {
   const [data, setData] = useState(null);
@@ -89,10 +94,10 @@ const TodosForm = () => {
               placeholder="여기에 입력하세요"
               value={input}
               onChange={handleInput}
-              maxLength="15"
+              maxLength="19"
               required
             />
-            <button type="submit">Enter</button>
+            <button type="submit">Add</button>
           </TodoInput>
         </>
       ) : (

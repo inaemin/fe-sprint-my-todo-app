@@ -28,18 +28,41 @@ export const CartItem = styled.li`
   text-decoration: ${(props) => (props.isCompleted ? 'line-through' : '')};
   font-weight: ${(props) => (props.isCompleted ? 'normal' : 'bold')};
   transition: 0.1s ease-in;
-  margin: 10px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
 
   &:hover {
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
   }
 `;
 
 export const CartInput = styled.form`
-  margin-top: 13px;
+  margin-top: 20px;
+  border: 2px solid #ffc107;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 15px;
   input {
+    background-color: rgba(1, 1, 1, 0);
+    border: none;
+    margin-left: 5px;
+    padding: 0;
+    &:focus {
+      outline: none;
+    }
   }
   button {
+    background-color: rgba(1, 1, 1, 0);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    &:hover {
+      cursor: pointer;
+      background-color: #ffc107;
+      transition: 0.2s ease-in-out;
+    }
   }
 `;
 
@@ -118,10 +141,10 @@ const CartForm = () => {
               placeholder="여기에 입력하세요"
               value={input}
               onChange={handleInput}
-              maxLength="15"
+              maxLength="19"
               required
             />
-            <button type="submit">Enter</button>
+            <button type="submit">Add</button>
           </CartInput>
         </>
       ) : (

@@ -12,7 +12,13 @@ const StudyList = styled(CartList)``;
 
 const StudyItem = styled(CartItem)``;
 
-const StudyInput = styled(CartInput)``;
+const StudyInput = styled(CartInput)`
+  border: 2px solid #8a4af3;
+  button:hover {
+    background-color: #8a4af3;
+    color: white;
+  }
+`;
 
 const StudyForm = () => {
   const [data, setData] = useState(null);
@@ -89,10 +95,10 @@ const StudyForm = () => {
               placeholder="여기에 입력하세요"
               value={input}
               onChange={handleInput}
-              maxLength="15"
+              maxLength="19"
               required
             />
-            <button type="submit">Enter</button>
+            <button type="submit">Add</button>
           </StudyInput>
         </>
       ) : (
