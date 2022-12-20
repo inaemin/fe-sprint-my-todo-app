@@ -28,22 +28,12 @@
     {
       "title": "🍪 snack",
       "isCompleted": false,
-      "id": 7
-    },
-    {
-      "title": "🍪 snack",
-      "isCompleted": true,
       "id": 8
     },
     {
       "title": "🍪 snack",
       "isCompleted": true,
       "id": 9
-    },
-    {
-      "title": "🍪 snack",
-      "isCompleted": true,
-      "id": 10
     },
     {
       "title": "🍪 snack",
@@ -68,14 +58,9 @@
       "isCompleted": true
     },
     {
-      "title": "ㄷㄷ",
+      "title": "쓰레기 버리기",
       "isCompleted": false,
-      "id": 9
-    },
-    {
-      "title": "ㅇㅇ",
-      "isCompleted": true,
-      "id": 10
+      "id": 4
     }
   ],
   "study": [
